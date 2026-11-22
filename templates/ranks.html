@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Ranks — {{ server.name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><p class="eyebrow">COMMUNITY DIRECTORY</p>
+  <h1>Server <span>ranks</span></h1><p>Meet the team and discover the roles in our community.</p>
+</section>
+<section class="rank-list">
+  {% for rank in ranks %}
+  <article class="rank-detail rank-{{ rank.color }}">
+    <div class="rank-detail-top"><div><span class="rank-label">{{ rank.name }}</span><h2>{{ rank.name }}</h2></div>
+      <span class="player-count">{{ rank.players|length }} listed</span></div>
+    <p>{{ rank.description }}</p><h3>Perks and responsibilities</h3>
+    <ul>{% for perk in rank.perks %}<li>{{ perk }}</li>{% endfor %}</ul>
+    <h3>Players</h3><div class="player-list">
+      {% for player in rank.players %}<span class="player-chip">⛏ {{ player }}</span>
+      {% else %}<span class="muted">No players listed yet.</span>{% endfor %}
+    </div>
+  </article>
+  {% endfor %}
+  <p class="notice">These are showcase details. Actual permissions are managed inside the Minecraft server.</p>
+</section>
+{% endblock %}
