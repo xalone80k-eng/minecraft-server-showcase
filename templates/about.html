@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}About — {{ server.name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><p class="eyebrow">ABOUT THE SERVER</p>
+  <h1>Welcome to <span>{{ server.name }}</span></h1><p>{{ server.description }}</p></section>
+<section class="about-panel"><h2>Connection details</h2>
+  <dl>
+    <div><dt>Address</dt><dd>{{ server.ip }}{% if server.port != 25565 %}:{{ server.port }}{% endif %}</dd></div>
+    <div><dt>Edition</dt><dd>{{ server.edition }}</dd></div>
+    <div><dt>Version</dt><dd>{{ server.version }}</dd></div>
+  </dl>
+  <p>Check the server's community channels for rules, announcements, and support.</p>
+  {% if server.discord_url %}<a class="button primary" href="{{ server.discord_url }}" target="_blank" rel="noopener noreferrer">Community Discord ↗</a>{% endif %}
+</section>
+{% endblock %}
