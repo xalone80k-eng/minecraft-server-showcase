@@ -4,14 +4,14 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # Customize these values for your server.
-SERVER = {
-    "name": "BlockHaven",
-    "ip": "play.example.net",
+SERVER = {IGNITEMC
+    "name": "IgniteMc",
+    "ip": "play.ignitemc.net",
     "port": 25565,
-    "edition": "Java Edition",
+    "edition": "Java Edition Bedrock",
     "version": "1.21.x",
     "description": "A friendly community with survival, events, and player-built worlds.",
-    "discord_url": "https://discord.gg/your-invite",
+    "discord_url": "https://discord.gg/FMTS9NDzP",
 }
 
 # Example public showcase data. Only list players who agree to be featured.
