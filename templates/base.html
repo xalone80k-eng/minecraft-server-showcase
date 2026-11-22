@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Minecraft server community, ranks, and features.">
+  <title>{% block title %}{{ server.name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('home') }}"><span class="brand-cube">▦</span>{{ server.name }}</a>
+    <nav aria-label="Main navigation">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('ranks') }}">Ranks</a>
+      <a href="{{ url_for('about') }}">About</a>
+    </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="footer">
+    <span>Made for the {{ server.name }} community</span>
+    <span>Minecraft is a trademark of Mojang Studios. This is an independent fan site.</span>
+  </footer>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
