@@ -4,7 +4,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # Customize these values for your server.
-SERVER = {IGNITEMC
+SERVER = {IGNITEMC}
     "name": "IgniteMc",
     "ip": "play.ignitemc.net",
     "port": 25565,
