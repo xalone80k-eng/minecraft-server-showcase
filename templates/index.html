@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ server.name }} — Minecraft Community{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
+    <h1>Build. Explore.<br><span>Belong.</span></h1>
+    <p class="lead">{{ server.description }}</p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ url_for('ranks') }}">Explore ranks</a>
+      {% if server.discord_url %}<a class="button secondary" href="{{ server.discord_url }}" target="_blank" rel="noopener noreferrer">Join Discord ↗</a>{% endif %}
+    </div>
+    <div class="server-address">
+      <div><small>SERVER ADDRESS</small><strong>{{ server.ip }}{% if server.port != 25565 %}:{{ server.port }}{% endif %}</strong></div>
+      <button class="copy-button" type="button" data-copy="{{ server.ip }}{% if server.port != 25565 %}:{{ server.port }}{% endif %}">Copy IP</button>
+    </div>
+    <p class="copy-status" aria-live="polite" id="copy-status"></p>
+  </div>
+  <div class="hero-art" aria-label="Decorative pixel-style landscape">
+    <div class="sun"></div><div class="mountain mountain-back"></div>
+    <div class="mountain mountain-front"></div><div class="grass"></div>
+    <div class="pixel-tree tree-one">▥</div><div class="pixel-tree tree-two">▥</div>
+    <div class="art-label">JAVA • {{ server.version }}</div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">WHAT'S WAITING FOR YOU</p><h2>Make your mark.</h2></div>
+  <div class="feature-grid">
+    {% for feature in features %}
+    <article class="feature-card"><div class="feature-icon">{{ feature.icon }}</div>
+      <h3>{{ feature.title }}</h3><p>{{ feature.text }}</p></article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section rank-preview">
+  <div class="section-heading"><p class="eyebrow">COMMUNITY SHOWCASE</p><h2>Meet the ranks.</h2></div>
+  <div class="rank-grid">
+    {% for rank in ranks %}
+    <article class="rank-card rank-{{ rank.color }}">
+      <span class="rank-label">{{ rank.name }}</span><p>{{ rank.description }}</p>
+      <small>{{ rank.players|length }} showcase player(s)</small>
+    </article>
+    {% endfor %}
+  </div>
+  <a class="text-link" href="{{ url_for('ranks') }}">See all rank details →</a>
+</section>
+{% endblock %}
