@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Page not found — {{ server.name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><p class="eyebrow">404 ERROR</p><h1>Looks like this chunk is missing.</h1>
+<a class="button primary" href="{{ url_for('home') }}">Back home</a></section>
+{% endblock %}
